@@ -1,0 +1,313 @@
+/* Full‑page dark minimal styling */
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #121212;
+  color: #eee;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+#player-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+/* Controls overlay */
+#controls-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 0;
+  background: rgba(18,18,18,0.6);
+  transition: opacity 0.3s;
+  opacity: 1;
+  pointer-events: all;
+  z-index:100;
+}
+#controls-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Row 1: seek */
+#seek-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 20px;
+}
+#seek {
+  flex: 1;
+  cursor: pointer;
+}
+
+/* Row 2: buttons */
+#basic-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+/* Buttons & sliders */
+button {
+  background: rgba(40,40,40,0.8);
+  border: none;
+  padding: 6px 8px;
+  border-radius: 4px;
+  color: #eee;
+  cursor: pointer;
+  font-size: 1em;
+}
+button:hover {
+  background: rgba(60,60,60,0.9);
+}
+input[type=range] {
+  cursor: pointer;
+}
+
+#separator {
+  margin-left: 5px;	
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#volume {
+  width: 80px;
+}
+#current-time, #remaining-time, #sub-value, #aud-value, #speed-value {
+  font-size: 0.9em;
+  min-width: 40px;
+  text-align: center;
+}
+/* …existing styles above… */
+
+/* Ensure subtitles show in white on semi‑dark background */
+video::cue {
+  color: white;
+  background: rgba(0,0,0,0.6);
+  font-size: 16px;
+  text-shadow: 1px 1px 2px black;
+  /* line will be set via JS */
+}
+
+/* Subtitle Settings Panel */
+#sub-settings-panel {
+  position: absolute;
+  bottom: 80px;
+  right: 20px;
+  background: rgba(18,18,18,0.95);
+  color: #eee;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 0.9em;
+  width: 200px;
+  z-index: 10;
+}
+#sub-settings-panel.hidden {
+  display: none;
+}
+#sub-settings-panel h3 {
+  margin: 0 0 8px 0;
+  font-size: 1em;
+}
+#sub-settings-panel label {
+  display: block;
+  margin: 6px 0;
+}
+#sub-settings-panel input,
+#sub-settings-panel select {
+  width: 100%;
+  margin-top: 2px;
+  background: #222;
+  border: 1px solid #444;
+  color: #eee;
+  padding: 4px;
+  border-radius: 4px;
+}
+#sub-settings-apply {
+  margin-top: 8px;
+  width: 100%;
+  background: #444;
+}
+#sub-settings-apply:hover {
+  background: #555;
+}
+
+#subtitle-container {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  right: 5%;
+  pointer-events: none;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+  background: rgba(0,0,0,0.6);
+  padding: 4px 8px;
+  border-radius: 4px;
+  line-height: 1.4;
+  display: none;           /* hidden until cues show */
+  z-index: 5;
+}
+
+/* Position classes for top/middle/bottom */
+#subtitle-container.pos-top    { top: 10%; bottom: auto; }
+#subtitle-container.pos-middle { top: 45%; bottom: auto; }
+#subtitle-container.pos-bottom { bottom: 10%; }
+
+#footer {
+  position:absolute; bottom:6px; right:10px; font-size:0.8em; color:#888;
+}
+
+
+/* Seek row */
+#seek-controls { display:flex; align-items:center; gap:8px; padding:0 20px; }
+#seek { flex:1; -webkit-appearance:none; height:6px;
+  background:#333; border-radius:3px; outline:none; cursor:pointer;
+}
+/* Seekbar thumb */
+#seek::-webkit-slider-thumb {
+  -webkit-appearance:none; width:14px; height:14px; border-radius:50%;
+  background:#eee; border:2px solid #444; margin-top:-4px;
+}
+
+#volume::-webkit-slider-thumb {
+  -webkit-appearance:none; width:14px; height:14px; border-radius:50%;
+  background:#eee; border:2px solid #444; margin-top:-4px;
+}
+#seek::-moz-range-thumb, #volume::-moz-range-thumb {
+  width:14px; height:14px; border-radius:50%;
+  background:#eee; border:2px solid #444;
+}
+
+
+#splash-screen {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+}
+
+/* Dialog box */
+.splash-dialog {
+  background: #fff;
+  border-radius: 8px;
+  width: 320px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  overflow: hidden;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+/* Header with Adobe‑style red bar */
+.splash-header {
+  background: #B31B34; /* Adobe red */
+  color: #fff;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.splash-header .splash-icon {
+  font-size: 1.5em;
+}
+
+/* Body text */
+.splash-body {
+  padding: 16px;
+}
+
+.splash-subtitle {
+  margin: 0 0 12px;
+  font-size: 0.9em;
+  color: #333;
+}
+
+.splash-loading {
+  margin: 0;
+  font-style: italic;
+  color: #555;
+}
+
+
+
+body, html {
+  background-color: #0d0d0d; /* near-black background */
+  font-family: 'Segoe UI', sans-serif;
+}
+
+#splash-box {
+  background-color: #1a1a1a;
+  border: 8px solid #333333; /* dark gray border */
+  padding: 40px;
+  box-shadow: 0 0 10px #55555511; /* subtle gray glow */
+  color: #e0e0e0; /* light gray text */
+}
+
+#splash-header {
+  border-top: 5px solid #444444;
+  border-bottom: 3px solid #444444;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  height: 90px;
+}
+
+#app-name {
+  color: #ffffff;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+#full-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #cccccc;
+}
+
+#developer-info {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 40px;
+}
+
+#status-text {
+  font-size: 13px;
+  color: #bbbbbb;
+}
+
+.status-overlay {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background-color: rgba(30, 30, 30, 0.85);
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 16px;
+  border-radius: 6px;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+  font-family: sans-serif;
+}

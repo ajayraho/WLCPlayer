@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Video Player</title>
+  <link rel="stylesheet" href="player.css">
+</head>
+<body>
+
+<div id="splash-screen">
+  <div id="splash-box">
+    <div id="splash-header">
+      <div id="app-name">🎥</div>
+    </div>
+    <div id="full-name">WLCPlayer</div>
+    <div id="developer-info">Developed and designed by: Ajit K.</div>
+	© 2025 ajayraho Productions. All rights reserved.   <br/><br/>
+	<div id="status-text">Loading modules...</div>
+  </div>
+</div>
+
+ <div id="statusOverlay" class="status-overlay"></div>
+
+
+  <div id="player-container">
+    <video id="video"></video>
+	<div id="subtitle-container"></div>
+    <div id="controls-overlay">
+      <!-- Row 1: seek bar -->
+      <div id="seek-controls">
+        <span id="current-time">0:00</span>
+        <input id="seek" type="range" min="0" value="0">
+        <span id="remaining-time">0:00</span>
+      </div>
+
+      <!-- Row 2: buttons -->
+      <div id="basic-controls">
+        <button id="play"    title="Space: Play/Pause">⏵</button>
+        <button id="stop"    title="S: Stop">⏹</button>
+        <button id="mute"    title="M: Mute/Unmute">🔊</button>
+        <input  id="volume"  type="range" min="0" max="1" step="0.01" value="1" title="↑ ↓: Volume"/>
+        <button id="open-file" title="Open Video File">📂</button>
+        <button id="load-sub"  title="Load Subtitle File">📄</button>
+        <button id="sub-settings" title="Subtitle Settings">🅰️</button>
+		<div id="separator">
+		📄
+        <button id="sub-decrease" title="[: Sub Delay –100 ms">-</button>
+        <span id="sub-value" title="Double click to reset" style="cursor:pointer">0 ms</span>
+        <button id="sub-increase" title="]: Sub Delay +100 ms">+</button>
+        </div>
+		<div id="separator">
+		🎤
+		<button id="aud-decrease" title="G: Audio Delay –100 ms">-</button>
+        <span id="aud-value" title="Double click to reset" style="cursor:pointer">0 ms</span>
+        <button id="aud-increase" title="H: Audio Delay +100 ms">+</button>
+		</div>
+		<div id="separator">
+		🏃
+        <button id="speed-down" title=",: Speed –0.25×">–</button>
+		<span id="speed-value" title="Double click to reset" style="cursor:pointer">1×</span>
+        <button id="speed-up"   title=".: Speed +0.25×">+</button>
+		</div>
+        <button id="full-screen" title="F: Fullscreen">⛶</button>
+      </div>
+    </div>
+
+
+    <!-- Subtitle Settings Panel -->
+    <!-- Subtitle Settings Panel -->
+<div id="sub-settings-panel" class="hidden">
+  <h3>Subtitle Appearance</h3>
+
+  <label>
+    Font size:
+    <input type="number"
+           id="sub-font-size"
+           min="10"
+           max="72"
+           value="16"> px
+  </label>
+
+  <label>
+    Font color:
+    <input type="color"
+           id="sub-font-color"
+           value="#ffffff">
+  </label>
+
+  <label>
+    Background:
+    <select id="sub-bg-choice">
+      <option value="solid" selected>Solid</option>
+      <option value="transparent">Transparent</option>
+    </select>
+  </label>
+
+  <label>
+    Background color:
+    <input type="color"
+           id="sub-bg-color"
+           value="#000000">
+  </label>
+
+  <label>
+    Bottom offset:
+    <input type="number"
+           id="sub-position-px"
+           min="0"
+           step="1"
+           value="10"> px
+  </label>
+
+  <button id="sub-settings-apply">Apply</button>
+</div>
+
+  </div>
+
+  <script src="player.js"></script>
+</body>
+</html>
