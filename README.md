@@ -22,6 +22,7 @@
 - [Usage](#usage)
 - [Key Features](#key-features)
 - [Controls](#controls)
+- [Privacy & Permissions](#privacy--permissions)
 - [Developer](#developer)
 
 ## Demo
@@ -106,6 +107,30 @@ WLCPlayer is a sophisticated Chrome extension designed to provide an enhanced vi
 - Font Size/Color Settings
 - Position Adjustment
 - Background Color Options
+
+## Privacy & Permissions
+
+### Required Permissions
+- **Storage Access**: Used to save your preferences and settings
+- **File System Access**: Required to open local video files and subtitles
+- **Tab Creation**: Needed to open the player in a new tab
+
+### Privacy Policy
+- ✅ **No Data Collection**: WLCPlayer does not collect or transmit any personal data
+- ✅ **Local Processing**: All video and subtitle processing happens locally on your device
+- ✅ **No External Services**: The extension works completely offline
+- ✅ **No Analytics**: We don't track usage or collect analytics
+
+### Data Storage
+- Only stores user preferences (subtitle settings, volume level, etc.)
+- All data is stored locally in Chrome's storage
+- Data can be cleared by removing the extension
+
+### Security
+- Files are processed locally in your browser
+- No network requests are made
+- No external scripts or resources are loaded
+- All code is open for inspection
 
 ---
 
